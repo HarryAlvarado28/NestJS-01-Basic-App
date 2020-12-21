@@ -10,13 +10,21 @@ describe('AppController', () => {
       controllers: [AppController],
       providers: [AppService],
     }).compile();
-
     appController = app.get<AppController>(AppController);
   });
 
-  describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+  describe('root method Hello World', () => {
+    it('should return GET "Hello World!"', () => {
+      expect(appController.getHello()).toBe('GET Hello World!');
+    });
+    it('should return POST "Hello World!"', () => {
+      expect(appController.postHello()).toBe('POST Hello World!');
+    });
+    it('should return PUT "Hello World!"', () => {
+      expect(appController.putHello()).toBe('PUT Hello World!');
+    });
+    it('should return DELETE "Hello World!"', () => {
+      expect(appController.deleteHello()).toBe('DELETE Hello World!');
     });
   });
 });
